@@ -6,42 +6,35 @@ namespace Ej5
         {
             InitializeComponent();
         }
-        int contadorExcelentes = 0;
-        int contadorBuenos = 0;
-        int contadorInsuficientes = 0;
+
+        int sumExcellent = 0, sumGood = 0, sumIns = 0;
+
         private void btnVotar_Click(object sender, EventArgs e)
         {
             if (rbExcelente.Checked)
             {
-                contadorExcelentes++;
+                sumExcellent++;
             }
             else if (rbBueno.Checked)
             {
-                contadorBuenos++;
+                sumGood++;
             }
             else if (rbInsuficiente.Checked)
             {
-                contadorInsuficientes++;
+                sumIns++;
             }
             else
             {
-                MessageBox.Show("Por favor, seleccione una opción.");
+                MessageBox.Show("Seleccione una opción válida");
                 return;
             }
 
-            #region limpiando controles
-            rbExcelente.Checked = false;
-            rbBueno.Checked = false;
-            rbInsuficiente.Checked = false;
-            #endregion
-
-            #region mostrar resultados
-            int total = contadorExcelentes + contadorBuenos + contadorInsuficientes;
-            lbTotal.Text = $"{total}";
-            lbExcelentes.Text = $"{contadorExcelentes}";
-            lbBuenos.Text = $"{contadorBuenos}";
-            lbInsuficientes.Text = $"{contadorInsuficientes}";
-            #endregion
+            int sum = sumExcellent + sumGood + sumIns;
+        
+            lbTotal.Text = $"{sum}";
+            lbExcelentes.Text = $"{sumExcellent}";
+            lbBuenos.Text = $"{sumGood}";
+            lbInsuficientes.Text = $"{sumIns}";
         }
     }
 }
